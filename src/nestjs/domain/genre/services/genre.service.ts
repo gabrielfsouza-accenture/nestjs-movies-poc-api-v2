@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
-import { Genre } from 'src/domain/genre/entities/genre.entity';
-import InMemoryGenreRepository from 'src/infra/genre/repositories/in-memory/in-memory-genre.repository';
+import { Genre } from '../../../../domain/genre/entities/genre.entity';
+import InMemoryGenreRepository from '../../../../infra/genre/repositories/in-memory/in-memory-genre.repository';
 import { CreateGenreDto } from '../dtos/create-genre.dto';
 import { UpdateGenreDto } from '../dtos/update-genre.dto';
 

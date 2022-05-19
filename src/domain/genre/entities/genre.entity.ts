@@ -1,5 +1,5 @@
 import { BadRequestException } from '@nestjs/common';
-import Entity from 'src/domain/@shared/entities/entity';
+import Entity from '../../@shared/entities/entity';
 
 interface GenreProps {
   id?: string;

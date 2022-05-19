@@ -1,4 +1,4 @@
-import RepositoryInterface from 'src/domain/@shared/repositories/repository.interface';
+import RepositoryInterface from '../../../../domain/@shared/repositories/repository.interface';
 import { UpdateGenreDto } from '../../../../nestjs/domain/genre/dtos/update-genre.dto';
 import { CreateGenreDto } from '../../../../nestjs/domain/genre/dtos/create-genre.dto';
 import { Genre } from '../../../../domain/genre/entities/genre.entity';

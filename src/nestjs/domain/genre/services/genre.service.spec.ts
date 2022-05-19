@@ -31,10 +31,13 @@ describe('GenreService', () => {
   });
 
   describe('create', () => {
-    it('should not create a genre if name already exists', () => {
+    it('should not create a genre if name already exists', async () => {
       expect(() => {
         const genre = new Genre({ id: '1', name: 'Genre 1' });
-        jest.spyOn(repository, 'findByName').mockReturnValue(genre);
+
+        jest
+          .spyOn(repository, 'findByName')
+          .mockImplementation(() => Promise.resolve(genre));
 
         service.create({ name: 'Genre 1' });
       }).toThrow(new BadRequestException('This genre already exists'));
@@ -52,8 +55,9 @@ describe('GenreService', () => {
   describe('findAll', () => {
     it('should return an empty list if no one genre exists', () => {
       const genres = [] as Genre[];
-
-      jest.spyOn(repository, 'findAll').mockReturnValue(genres);
+      jest
+        .spyOn(repository, 'findAll')
+        .mockImplementation(() => Promise.resolve(genres));
       expect(service.findAll()).toStrictEqual(genres);
     });
 
@@ -64,7 +68,9 @@ describe('GenreService', () => {
         { id: '3', name: 'Genre 3' },
       ] as Genre[];
 
-      jest.spyOn(repository, 'findAll').mockReturnValue(genres);
+      jest
+        .spyOn(repository, 'findAll')
+        .mockImplementation(() => Promise.resolve(genres));
       expect(service.findAll()).toStrictEqual(genres);
     });
   });
@@ -78,8 +84,9 @@ describe('GenreService', () => {
     it('should find a genre by id', () => {
       const genre = new Genre({ id: '1', name: 'Genre 1' });
 
-      jest.spyOn(repository, 'findById').mockReturnValue(genre);
-
+      jest
+        .spyOn(repository, 'findById')
+        .mockImplementation(() => Promise.resolve(genre));
       expect(service.findOne('1')).toStrictEqual(genre);
     });
   });
@@ -98,8 +105,9 @@ describe('GenreService', () => {
       const genre1 = new Genre({ id, name: 'Genre 1' });
       const genre2 = new Genre({ id, name: 'Genre 2' });
       jest.clearAllMocks();
-      jest.spyOn(repository, 'findById').mockReturnValue(genre1);
-
+      jest
+        .spyOn(repository, 'findById')
+        .mockImplementation(() => Promise.resolve(genre1));
       service.update(id, { name: 'Genre 2' });
 
       expect(service.findOne(id)).toStrictEqual(genre2);
