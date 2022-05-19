@@ -1,7 +1,7 @@
 import RepositoryInterface from 'src/domain/@shared/repositories/repository.interface';
-import { CreateGenreDto } from 'src/nestjs/genre/dtos/create-genre.dto';
-import { UpdateGenreDto } from 'src/nestjs/genre/dtos/update-genre.dto';
-import { Genre } from 'src/domain/genre/entities/genre.entity';
+import { UpdateGenreDto } from '../../../../nestjs/domain/genre/dtos/update-genre.dto';
+import { CreateGenreDto } from '../../../../nestjs/domain/genre/dtos/create-genre.dto';
+import { Genre } from '../../../../domain/genre/entities/genre.entity';
 
 export default class InMemoryGenreRepository
   implements RepositoryInterface<Genre, CreateGenreDto, UpdateGenreDto>

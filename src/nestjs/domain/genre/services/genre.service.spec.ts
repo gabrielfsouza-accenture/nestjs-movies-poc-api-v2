@@ -1,7 +1,7 @@
 import { BadRequestException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { Genre } from '../../../domain/genre/entities/genre.entity';
-import InMemoryGenreRepository from '../../../infra/genre/repositories/in-memory/in-memory-genre.repository';
+import { Genre } from '../../../../domain/genre/entities/genre.entity';
+import InMemoryGenreRepository from '../../../../infra/genre/repositories/in-memory/in-memory-genre.repository';
 import { GenreService } from './genre.service';
 
 describe('GenreService', () => {
